@@ -32,4 +32,4 @@ The toggle scales based on a custom property (`--height`) on the component. It's
 ```
 
 ### Browser Support
-This package relies on CSS `@property` rules as well as CSS custom properties in order to function. For more detailed information on specific browser versions support, please reference the [Can I Use @property](https://caniuse.com/?search=%40property) and [Can I Use CSS Custom Properties](https://caniuse.com/?search=CSS%20custom%20properties) support tables.
+This package relies on CSS `@property` rules as well as CSS custom properties in order to function. For more detailed information on specific browser version support, please reference the [Can I Use @property](https://caniuse.com/?search=%40property) and [Can I Use CSS Custom Properties](https://caniuse.com/?search=CSS%20custom%20properties) support tables.
