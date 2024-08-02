@@ -1,0 +1,194 @@
+@property --day-night-toggle-color-1 {
+  syntax: "<color>";
+  inherits: false;
+}
+
+@property --day-night-toggle-color-2 {
+  syntax: "<color>";
+  inherits: false;
+}
+
+.day-night-toggle {
+  --height: 50px;
+  --padding: calc(var(--height) / 10);
+  --width: calc(var(--height) * 2);
+  height: var(--height);
+  width: var(--width);
+  border-radius: calc(var(--height) / 2);
+  border: none;
+  overflow: hidden;
+  position: relative;
+  padding: var(--padding);
+  transition-duration: 0.5s;
+  box-shadow: inset 0px calc(var(--height) / 10) calc(var(--width) / 10) rgba(#000, 0.2);
+  background: linear-gradient(to right, var(--day-night-toggle-color-1), var(--day-night-toggle-color-2));
+  &>div {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    pointer-events: none;
+    &>.shooting-star {
+      display: none;
+      position: absolute;
+      top: -100%;
+      left: -45%;
+      z-index: 10;
+      rotate: -140deg;
+      width: calc(var(--height) / 4);
+      height: calc(var(--height) / 4);
+    }
+    &>.clouds,
+    &>.stars {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition-duration: 0.5s;
+    }
+    &>.clouds {
+      &>svg {
+        position: absolute;
+        top: calc(var(--height) / 3);
+        right: calc(var(--height) / 2);
+        width: calc(var(--height) / 2);
+        height: calc(var(--height) / 2);
+        fill: rgba(#fff, 0.6);
+        animation: hover 1.5s infinite alternate;
+        &:nth-of-type(2) {
+          top: 0;
+          right: calc(var(--height) / 10);
+        }
+      }
+    }
+    &>.stars {
+      opacity: 0;
+      translate: -100%;
+      &>svg {
+        fill: rgba(#fff, 0.75);
+        position: absolute;
+        transition-duration: 0.5s;
+        top: calc(var(--height) / 5);
+        left: calc(var(--height) / 5);
+        width: calc(var(--height) / 9);
+        height: calc(var(--height) / 9);
+        animation: pulse 2s infinite alternate;
+        &:nth-of-type(2) {
+          top: calc(var(--height) / 4);
+          left: calc(var(--height) / 1.2);
+          animation-delay: 0.25s;
+        }
+        &:nth-of-type(3) {
+          top: calc(var(--height) / 1.6);
+          left: calc(var(--height) / 1.75);
+          animation-delay: 0.5s;
+        }
+        &:nth-of-type(4) {
+          top: calc(var(--height) / 1.8);
+          left: calc(var(--height) / 4);
+          animation-delay: 0.75s;
+        }
+        &:nth-of-type(5) {
+          top: calc(var(--height) / 2.8);
+          left: calc(var(--height) / 2);
+          animation-delay: 1s;
+        }
+        &:nth-of-type(6) {
+          top: calc(var(--height) / 8);
+          left: calc(var(--height) / 1.8);
+          animation-delay: 1.25s;
+        }
+      }
+    }
+    &>.knob {
+      pointer-events: none;
+      height: calc(var(--height) - calc(var(--padding) * 2));
+      width: calc(var(--height) - calc(var(--padding) * 2));
+      border-radius: 50%;
+      position: relative;
+      transition-duration: 0.5s;
+      &>.sun,
+      &>.moon {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        transition-duration: 0.5s;
+      }
+      &>.sun {
+        filter: drop-shadow(0px calc(var(--height) / 20) calc(var(--width) / 10) rgba(#ffab3e, 0.5));
+      }
+      &>.moon {
+        opacity: 0;
+        rotate: -90deg;
+      }
+    }
+  }
+  &.dark {
+    --day-night-toggle-color-1: #40394e;
+    --day-night-toggle-color-2: #635d71;
+    box-shadow: inset 0px calc(var(--height) / 10) calc(var(--width) / 10) rgba(#000, 0.4);
+    & > div {
+      &>.stars {
+        opacity: 1;
+        translate: 0;
+      }
+      &>.clouds {
+        opacity: 0;
+        translate: 100%; 
+      }
+      &>.shooting-star {
+        display: block;
+        animation: shooting-star 8s infinite;
+      }
+      & > .knob {
+        translate: var(--height);
+        box-shadow: 0px calc(var(--height) / 10) calc(var(--width) / 10) rgba(#000, 0.2);
+        &>.moon {
+          opacity: 1;
+          rotate: 0deg;
+        } 
+        &>.sun {
+          opacity: 0;
+          rotate: 90deg;
+        } 
+      }
+    }
+  }
+  &.light {
+    --day-night-toggle-color-1: #ffffff;
+    --day-night-toggle-color-2: #f7c744;
+    box-shadow: inset 0px calc(var(--height) / 10) calc(var(--width) / 10) rgba(#000, 0.2);
+  }
+}
+
+@keyframes hover {
+  from {
+    translate: 0 -3%;
+  }
+  to {
+    translate: 0 7.5%;
+  }
+}
+
+@keyframes shooting-star {
+  0% {
+    translate: 0 0;
+  }
+  40% {
+    translate: 700% 700%;
+  }
+  100% {
+    translate: 700% 700%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
