@@ -10,9 +10,10 @@ import "./styles.css";
 
 export const DayNightToggle = memo(function DayNightToggle({
   theme,
+  className,
   onChange,
 }: Props) {
-  const classes = useClassNames("day-night-toggle", theme);
+  const classes = useClassNames("day-night-toggle", className, theme);
   const onPress = useCallback(() => {
     onChange(theme === "dark" ? "light" : "dark");
   }, [theme, onChange]);
@@ -46,5 +47,6 @@ export const DayNightToggle = memo(function DayNightToggle({
 
 interface Props {
   theme: ITheme;
+  className?: string;
   onChange: (state: ITheme) => void;
 }
