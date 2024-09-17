@@ -1,6 +1,6 @@
 {
   "name": "@figliolia/day-night-toggle",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A dark mode toggle with day/night visualizations built for React",
   "author": "Alex Figliolia",
   "scripts": {
@@ -12,7 +12,6 @@
   },
   "files": [
     "dist",
-    "media",
     "src"
   ],
   "browserslist": [

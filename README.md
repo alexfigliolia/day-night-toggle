@@ -1,11 +1,7 @@
 # Day Night Toggle
 A dark mode toggle with day/night visualizations built for React
 
-![Toggle Demo](media/toggle.gif "Toggle Demo")
-
-https://github.com/user-attachments/assets/7166c32d-6ef5-41cc-a95d-cf62b111a4c5
-
-
+<video title="Demo" src="https://github.com/user-attachments/assets/7166c32d-6ef5-41cc-a95d-cf62b111a4c5" height="auto" width="auto"></video>
 
 ## Installation
 ```bash
