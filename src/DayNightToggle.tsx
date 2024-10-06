@@ -6,7 +6,7 @@ import { ShootingStar } from "Icons/ShootingStar";
 import { Star } from "Icons/Star";
 import { Sun } from "Icons/Sun";
 import type { ITheme } from "Types";
-import "./styles.css";
+import "./styles.scss";
 
 export const DayNightToggle = memo(function DayNightToggle({
   theme,

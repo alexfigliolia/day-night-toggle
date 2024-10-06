@@ -7,8 +7,9 @@
     "transpile": "ts-packager -e src",
     "lint": "tsx ci/commands/Lint.ts",
     "test": "tsx ci/commands/Test.ts",
-    "copy-files": "copyfiles -u 1 src/**/*.css dist/cjs && copyfiles -u 1 src/**/*.css dist/mjs",
-    "build": "yarn transpile && yarn copy-files"
+    "compile-scss": "sass src",
+    "copy-files": "copyfiles -u 1 src/**/*.css* dist/cjs && copyfiles -u 1 src/**/*.css* dist/mjs && copyfiles -u 1 src/**/*.css* dist/types",
+    "build": "tsx ci/commands/Build.ts"
   },
   "files": [
     "dist",
@@ -60,6 +61,7 @@
     "jest": "^29.7.0",
     "jest-extended": "^4.0.0",
     "prettier": "^3.2.4",
+    "sass": "^1.79.4",
     "ts-jest": "^29.1.1",
     "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
